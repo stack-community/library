@@ -1,0 +1,32 @@
+(../library/list.stk) read-file eval
+
+(
+    (default) var
+    (patern) var
+    (value) var
+    
+    default (return) var
+    patern (i) (
+        (i 1 get (return) var) ()
+        i 0 get value equal if
+    ) for
+
+    return eval
+) 
+(match) var
+
+( 
+    (text) var
+    text (\\{.*\\}) regex (place) var
+
+    place (i) (
+        i 0 del copy len 1 sub del () join (i) var
+        i eval
+    ) map (value) var
+    
+    place value zip eval (i) (
+        text i 0 get i 1 get replace (text) var
+    ) for
+    text
+) 
+(format) var

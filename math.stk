@@ -1,0 +1,85 @@
+#   
+    Stack programming language
+    mathematics standards library
+#
+
+# Pi #
+3.141592653589793 (pi) var
+
+( # Solve abs #
+    (num) var
+    num (-) () replace
+    (number) cast
+) (abs) var
+
+( # Solve sum of list #
+    (array) var
+    array (i) (
+        i total add (total) var
+    ) for total
+) (sum) var
+
+( # Solve radian form angle #
+    pi mul 180 div 
+)　(radian) var
+
+( # Solve average of list #
+    (array2) var
+    array2 sum eval 
+    array2 len div
+) (average) var
+
+( # Solve cumulate value from the range #
+    (max) var (count) var
+    (count copy 1 add max cumulate eval add)
+    (count) count max less if
+) (cumulate) var
+
+( # Solve max value in list #
+    (array) var
+    array 0 get (temp) var
+    array (i) (
+        (i (temp) var) ()
+        temp i less if
+    ) for temp
+) (max) var
+
+( # Solve max value in list #
+    (array) var
+    array 0 get (temp) var
+    array (i) (
+        (i (temp) var) ()
+        i temp less if
+    ) for temp
+) (min) var
+
+(　# Judgement is it prime number #
+    (number) var
+    2 (i) var
+    true (flag) var
+    
+    (   (false) (true)
+        number 2 less if (flag) var
+    ) (
+        (false (flag) var) 
+        (
+            (
+                ( 
+                    false (flag) var
+                ) ()
+                number i mod 0 equal if
+
+                i 1 add (i) var
+            )
+            (i number 0.5 pow 1 add less flag and) while
+        ) number 2 mod 0 equal number 3 mod 0 equal or if
+    ) number 4 less if
+    flag
+)
+(prime?) var
+
+( # Split the number #
+    (num) var
+    1 num 1 range rand (r) var
+    [r num r sub] 
+) (split-number) var

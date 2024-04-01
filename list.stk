@@ -1,0 +1,20 @@
+(../library/math.stk) read-file eval
+
+( # Zip the two list element #
+    (b) var 
+    (a) var
+    
+    [a len b len] min eval (length) var
+    0 length 1 range (i) (
+        [a i get b i get]
+    ) map
+
+) (zip) var
+
+( # Just the string length #
+    (num) var (string) var
+    (string) (( ) num length sub repeat string concat)
+    
+    string (string) cast len (length) var 
+    num length less if
+) (just) var
