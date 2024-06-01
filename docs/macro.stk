@@ -1,4 +1,4 @@
-(../library/list.stk) read-file eval
+(https://stack-community.github.io/library/list.stk) request eval
 
 (
     (default) var
