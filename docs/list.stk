@@ -1,4 +1,5 @@
-(../library/math.stk) read-file eval
+(https://stack-community.github.io/library/math.stk) 
+request eval
 
 ( # Zip the two list element #
     (b) var 
