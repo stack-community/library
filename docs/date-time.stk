@@ -1,0 +1,56 @@
+(
+    (
+        (is-leap-year.year) var
+        is-leap-year.year 4 mod 0 equal is-leap-year.year 100 mod 0 equal not and is-leap-year.year 400 mod 0 equal or
+    ) (is-leap-year) var
+
+    [31 28 31 30 31 30 31 31 30 31 30 31] (days-in-month) var
+
+    (epoch-time) var
+
+    epoch-time (seconds) var
+    seconds 24 3600 mul div round (days) var
+    seconds 24 3600 mul mod (seconds) var
+
+    1970 (year) var
+    true (flag) var
+    (
+        (366) (365) year is-leap-year eval if (days-in-current-year) var
+        (
+            false (flag) var
+        ) (
+            days days-in-current-year sub (days) var
+            year 1 add (year) var
+        )
+        days days-in-current-year less if
+
+    ) (flag) while
+
+    0 (month) var
+    true (flag) var
+    (
+        days-in-month month get (days-in-current-month) var
+        (
+            days-in-current-month 1 add (days-in-current-month) var
+        ) ()
+        month 1 equal year is-leap-year eval and if
+
+        (
+            false (flag) var
+        ) (
+            days days-in-current-month sub (days) var
+            month 1 add (month) var
+        )
+        days days-in-current-month less if
+
+    ) (flag) while
+
+    days 1 add (day) var
+
+    seconds 3600 div (.) split 0 get (hour) var
+    seconds 3600 mod (seconds) var
+    seconds 60 div (.) split 0 get (minute) var
+    seconds 60 mod (.) split 0 get (second) var
+
+    year month 1 add day hour minute second
+) (epoch-to-date) var
